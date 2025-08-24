@@ -2,7 +2,6 @@ import * as Scrollytelling from "@bsmnt/scrollytelling";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import s from "./Hero.module.scss";
-import { Button } from "../shared/button/button";
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -61,7 +60,23 @@ const HeroSection = () => {
           </section>
 
           <section className={clsx(s["feature-block"])}>
-            <div className={clsx(s["feature-wrapper"], "container")}></div>
+            <div className={clsx(s["feature-wrapper"], "container")}>
+              <div className={s["upper-items"]}>
+                <h4>شفافیت کامل مالی</h4>
+                <p>با خیال راحت میتونید انواع خروجی و ورودی را ببینیذ</p>
+                <div className={s["featured-by"]}>
+                  <span>قدرت گرفته از</span>
+                  <img src="/feature/bloomberg.svg" alt="" />
+                </div>
+              </div>
+              <div className={s["down-items"]}>
+                <img src="/feature/bloomberg.svg" alt="" />
+                <img src="/feature/bbc.svg" alt="" />
+                <img src="/feature/g.svg" alt="" />
+                <img src="/feature/dw.svg" alt="" />
+                <img src="/feature/forbes.svg" alt="" />
+              </div>
+            </div>
           </section>
         </Scrollytelling.Pin>
       </Scrollytelling.Root>
