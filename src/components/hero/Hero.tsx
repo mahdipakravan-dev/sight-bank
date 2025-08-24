@@ -11,8 +11,8 @@ const HeroSection = () => {
     <>
       <Scrollytelling.Root start="top top" end="bottom bottom">
         <Scrollytelling.Pin
-          childHeight={"100vh"}
-          pinSpacerHeight={"100vh"}
+          childHeight={"90vh"}
+          pinSpacerHeight={"90vh"}
           pinSpacerClassName={s["pin-spacebar"]}
         >
           <div className={s["hero-bg"]} />
@@ -58,6 +58,10 @@ const HeroSection = () => {
                 className={s["card-shadow"]}
               />
             </div>
+          </section>
+
+          <section className={clsx(s["feature-block"])}>
+            <div className={clsx(s["feature-wrapper"], "container")}></div>
           </section>
         </Scrollytelling.Pin>
       </Scrollytelling.Root>
