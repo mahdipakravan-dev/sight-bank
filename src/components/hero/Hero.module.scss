@@ -1,0 +1,22 @@
+@import "../../css/helpers.scss";
+
+.pin-spacebar {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 16px !important;
+}
+
+.hero-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  height: 83.875rem;
+  background-image: url(/bg.svg);
+  background-position: 50% 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

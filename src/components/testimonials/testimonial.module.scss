@@ -1,0 +1,103 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 12%;
+  // margin: 5% 20%;
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.testimonials {
+  overflow: hidden;
+  width: 100%;
+
+  .row-1,
+  .row-2 {
+    color: #000;
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: scroll-x 50s ease-in-out infinite;
+    gap: 12px;
+    height: 240px;
+
+    .comment {
+      width: 624px;
+      flex-shrink: 0;
+      background-color: white;
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e9eff5;
+        padding: 12px 0;
+
+        .right {
+          display: flex;
+          justify-content: center;
+
+          .avatar {
+            img {
+              border-radius: 100%;
+            }
+          }
+
+          .name {
+            margin: 0 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+          }
+        }
+
+        .stars {
+          display: flex;
+          gap: 4px;
+          margin: 6px 0;
+        }
+      }
+
+      p {
+        margin-top: 18px;
+        line-height: 190%;
+      }
+    }
+  }
+
+  .row-2 {
+    margin-top: 24px;
+    animation-delay: 15s;
+  }
+
+  .row-1:hover,
+  .row-2:hover {
+    animation-play-state: paused;
+  }
+}
+
+.content {
+  margin-top: 82px;
+  font-size: 4.2rem;
+  font-weight: bold;
+  color: #000;
+  font-family: var(--font-title);
+}

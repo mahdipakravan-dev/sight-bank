@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 5% 20%;
+}
+
+.content {
+  width: 100%;
+  // margin: 0 32px;
+  // font-size: 1.5rem;
+  color: #000;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+
+  .line-1 {
+    font-weight: 800;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .line-2 {
+    @extend .line-1;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-top: 14px;
+    line-height: 42px;
+  }
+}
+
+.faq-container {
+  width: 100%;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  background-color: #f8f8f8;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.question-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-align: right;
+  flex: 1;
+  margin-right: 16px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.plus-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #666;
+  transition: transform 0.3s ease;
+
+  &.rotated {
+    transform: rotate(45deg);
+  }
+}
+
+.faq-answer {
+  background-color: #ffffff;
+  padding: 20px 24px;
+  border-top: 1px solid #e0e0e0;
+  animation: slideDown 0.3s ease-out;
+
+  p {
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: right;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}

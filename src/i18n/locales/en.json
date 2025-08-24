@@ -1,0 +1,102 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Our Services",
+    "download": "Download HiBank",
+    "language": "language"
+  },
+  "hero": {
+    "subtitle": "A new hello to digital banking",
+    "title": "More than a bank",
+    "highlight": "HiBank",
+    "highlight2": "Bank",
+    "description": [
+      "From account opening and digital checks",
+      "to insurance, car services, and diverse financial features",
+      "all in one simple, fast, and smart app"
+    ],
+    "cta": "Install HiBank now",
+    "scroll": "Scroll down",
+    "section2": {
+      "subtitle": "A new hello to digital banking",
+      "highlight": "HiBank",
+      "title": "Your favorite bank",
+      "description": ["Card to card and", "bill payment", "easier than ever"],
+      "cta": "Install HiBank now"
+    }
+  },
+  "footer": {
+    "slogan": "A new hello to digital banking",
+    "description": "Open an account with your mobile, get a bank card, and enjoy all banking services without visiting a branch. You can also easily access all your Karafarin Bank accounts and cards in the app and manage your financial transactions.",
+    "contactTitle": "Contact Us",
+    "address": "Address: Nelson Mandela Blvd, Nahid Gharbi St, No. 97, Karafarin Bank HQ",
+    "phone": "Phone: 021-26215000",
+    "downloadApp": "Download from SibApp"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Here you can find answers to common questions.",
+    "items": [
+      {
+        "question": "What documents are required to open an account in HiBank?",
+        "answer": "To open an account, you need a valid national ID card, birth certificate, and a completed application form. Additional documents may be required depending on the account type."
+      },
+      {
+        "question": "How does the HiBank authentication process work?",
+        "answer": "Authentication is done through personal information verification, biometrics, and one-time SMS codes. The process is fully digital and secure."
+      },
+      {
+        "question": "Can Iranians living abroad use HiBank services?",
+        "answer": "Yes, Iranians living abroad can use limited HiBank services by providing valid documents and completing a special authentication process."
+      },
+      {
+        "question": "What are the uses of HiBank digital signature?",
+        "answer": "The digital signature is used for transaction approval, contract signing, and financial document validation. It is legally valid and highly secure."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "صدای شما راهنمای ماست"
+  },
+  "about": {
+    "title": "HiBank,",
+    "line1": "The official digital banking brand of Karafarin Bank",
+    "line2": "Developed by Negah Bank Company",
+    "description": "This platform is designed to simplify, smarten, and personalize banking services for today’s users; a place where there is no need for in-person visits, paper forms, or scattered tools. Negah Bank Company, focusing on modern technologies, smooth user experience, and high security, has developed HiBank as a comprehensive solution for managing financial affairs and daily services. From account opening and digital checks to car services and bank cards, everything is gathered in a simple, secure, and always accessible space for those who live up-to-date and expect more from banking."
+  },
+  "download": {
+    "title": "HiBank",
+    "subtitle": "A bridge between today’s needs and tomorrow’s solutions",
+    "ctaText": "Experience HiBank now.",
+    "ctaButton": "Download HiBank"
+  },
+  "services": {
+    "title": "HiBank Services",
+    "description": "With HiBank's diverse services, you can easily and quickly handle all your banking needs.",
+    "card_transfer": "Card to Card",
+    "loan": "No-Guarantor Loan",
+    "bill": "Bill Payment",
+    "fine_payment": "Fine Payment",
+    "tax": "Tax Payment",
+    "card_security_title": "Take your card security seriously",
+    "card_security_desc": "Change your password with just a few clicks inside the app.",
+    "card_colors_title": "Card Colors",
+    "card_colors": {
+      "default": "Blue",
+      "orange": "Orange",
+      "navy_blue": "Navy Blue",
+      "magenta": "Magenta",
+      "sky_blue": "Sky Blue",
+      "green": "Green"
+    },
+    "banking_services_aria": "Banking Services",
+    "banking_services_title": "Your banking never gets delayed",
+    "banking_services_p1": "With HiBank, you have no worries. We help you do all your banking tasks on time and without waiting. HiBank is always and everywhere available for you and won't let your work be disrupted.",
+    "banking_services_p2": "HiBank is with you so you can make payments, inquiries, and financial services with just a few taps. Fast, secure, and always by your side; just as it should be.",
+    "card_services_aria": "Card Services",
+    "card_title": "HiBank Card",
+    "card_brand": "HiBank",
+    "card_desc": "The HiBank physical card is issued without the need for in-person visits and is delivered directly to you. With exclusive design, diverse colors, and brand identity, these cards offer you a secure, modern, and unique banking experience. Purchase, transfer, and card management, all with an eye-catching design.",
+    "card_cta": "Activate your card now"
+  }
+}

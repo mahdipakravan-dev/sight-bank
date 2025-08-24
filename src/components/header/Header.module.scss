@@ -1,0 +1,51 @@
+@import "../../css/helpers.scss";
+
+.header {
+  // display: grid;
+  // align-items: center;
+  // justify-content: space-between;
+  // grid-template-columns: repeat(3, 1fr);
+  // text-align: center;
+  // position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // z-index: 4;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  // backdrop-filter: blur(0px);
+  max-height: 96px;
+  // background-color: red;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+  inset: 0;
+
+  .menu {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    ul {
+      display: flex;
+      // width: 220px;
+      justify-content: space-around;
+      align-items: center;
+      gap: 42px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      li {
+        display: flex;
+        align-items: center;
+        border-radius: var(--radius);
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--text);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        padding-top: 8px;
+      }
+    }
+  }
+}
