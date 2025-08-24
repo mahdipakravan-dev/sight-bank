@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import HeroSection from "./components/hero/Hero";
 import "./css/global.scss";
 import { Services } from "./components/services/services";
+import { Footer } from "./components/footer/footer";
 const App = () => {
   const scrollRef = useRef<Lenis>();
 
@@ -41,13 +42,13 @@ const App = () => {
         <Header />
         <HeroSection />
         <Services />
-        {/* <Cards />
-        <About />
-        <Testimonial />
-        <Download />
+        {/* <Cards /> */}
+        {/* <About /> */}
+        {/* <Testimonial /> */}
+        {/* <Download /> */}
         <Footer />
-        <Copyright />
-        <SpeedInsights/> */}
+        {/* <Copyright /> */}
+        {/* <SpeedInsights/> */}
       </main>
     </>
   );
