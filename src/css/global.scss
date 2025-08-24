@@ -17,7 +17,7 @@
   --color-white: #efefef;
   --color-orange: #ff4d00;
   --text: #fff;
-  --primary: #006d66;
+  --primary: #304761;
   --secondary: #f37038;
   --accent: linear-gradient(180deg, #ff8049, #f37038);
 
@@ -60,7 +60,7 @@ html {
 body {
   font-family: var(--font-system);
   transition: opacity #{$duration / 3 + "s"} ease-in;
-  color: #fff;
+  color: #000;
 }
 
 h1,

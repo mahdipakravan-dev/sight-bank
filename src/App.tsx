@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import Header from "./components/header/Header";
 import HeroSection from "./components/hero/Hero";
 import "./css/global.scss";
+import { Services } from "./components/services/services";
 const App = () => {
   const scrollRef = useRef<Lenis>();
 
@@ -39,8 +40,8 @@ const App = () => {
       <main>
         <Header />
         <HeroSection />
-        {/* <Services />
-        <Cards />
+        <Services />
+        {/* <Cards />
         <About />
         <Testimonial />
         <Download />

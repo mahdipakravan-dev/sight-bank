@@ -1,322 +1,70 @@
-// Variables
-$fade-intensity: 0.2;
-$fade-transition: 0.5s ease;
-$fade-z-index: 2;
-
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 22px;
-  backdrop-filter: blur(26px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  // boxshadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-// Mixin for fade gradients
-@mixin fade-gradient(
-  $direction,
-  $start-opacity: $fade-intensity,
-  $end-opacity: 1.3
-) {
-  display: none;
-  background: linear-gradient(
-    $direction,
-    rgba(255, 255, 255, $start-opacity) 0%,
-    rgba(255, 255, 255, $end-opacity) 50%,
-    transparent 100%
-  );
-}
-
-// Mixin for corner fade gradients
-@mixin corner-fade-gradient(
-  $position,
-  $start-opacity: $fade-intensity,
-  $end-opacity: 1.4
-) {
-  display: none;
-  background: radial-gradient(
-    ellipse at $position,
-    rgba(255, 255, 255, $start-opacity + 0.1) 0%,
-    rgba(255, 255, 255, $end-opacity) 40%,
-    transparent 70%
-  );
-}
-
-// Base fade styles
-%fade-base {
-  position: absolute;
-  z-index: $fade-z-index;
-  opacity: 1;
-  transition: opacity $fade-transition;
-}
-
 .container {
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   justify-content: start;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  // padding: 8% 0 0 0;
-
-  video {
-    width: 100%;
-    height: 100vh;
-  }
-}
-
-.video-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 1;
-  border-radius: var(--border-radius, 20px);
-  transition: border-radius 0.3s ease;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000;
-    opacity: 20%;
-    z-index: 4;
-  }
-}
-
-.card-glass-bottom {
-  @extend .glass;
-  position: absolute;
-  bottom: 24%;
-  right: 10%;
-  padding: 14px;
-  z-index: 4;
-  opacity: 1;
-
-  h5 {
-    font-size: 1.3rem;
-    color: #fff;
-    font-weight: 600;
-  }
-
-  p {
-    color: var(--primary);
-    font-size: 1rem;
-  }
-}
-
-.card-glass-top {
-  @extend .glass;
-  width: 300px;
-  position: absolute;
-  bottom: 64%;
-  right: 34%;
-  padding: 14px 24px;
-  z-index: 4;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-
-  h5 {
-    font-size: 1.3rem;
-    color: #fff;
-    font-weight: 600;
-  }
-
-  .card-glass-top-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    gap: 12px;
-
-    span {
-      color: #fff;
-      font-weight: 600;
-      background-color: #135a30;
-      padding: 8px;
-      border-radius: 24px;
-    }
-  }
-
-  .colors {
-    display: flex;
-    gap: 8px;
-
-    .color {
-      width: 32px;
-      height: 32px;
-      border-radius: 100%;
-      position: relative;
-    }
-
-    .oval {
-      width: 34px;
-      height: 34px;
-      background-color: transparent;
-      border: 1.2px solid #fff;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    }
-  }
-}
-
-.video-rectangle {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rectangle-mask {
-  border-radius: 28px;
-  width: 92%;
-  height: 74%;
-  // background-color: #fff;
-}
-
-.fullscreen-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.content {
-  position: absolute;
-  right: 10%;
-  top: 40%;
-  font-size: 32px;
-  font-weight: 600;
-  z-index: 4;
-  color: #fff;
-  max-width: 500px;
-
-  h2 {
-    font-size: 44px;
-    font-weight: 900;
-    margin-bottom: 12px;
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: 400px;
-    line-height: 34px;
-  }
-}
-
-.right-gradient {
-  position: absolute;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  z-index: 4;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.7) 30%
-  );
-  pointer-events: none;
-}
-
-.over-video {
-  @extend .content;
-  top: 12%;
-
-  p {
-    margin-bottom: 22px;
-  }
-}
-
-.card-content {
-  @extend .content;
-  position: absolute;
-  left: 16%;
-  right: unset;
-  width: 40%;
-  height: 100%;
-  z-index: 4;
-  color: #000000;
-  top: 34%;
-
-  b {
-    color: var(--primary);
-  }
-
-  p {
-    margin-bottom: 22px;
-  }
-
-  a {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: var(--primary);
-    gap: 16px;
-    cursor: pointer;
-    font-size: 24px;
-  }
-}
-
-.services-grid {
-  position: relative;
-  // width: 250px;
-  height: 320px;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: start;
   // align-items: center;
-  overflow: hidden;
-  // outline: 1px solid red;
+  position: relative;
+  background: #fff;
+  padding: 124px 0;
+  // border: 1px solid red;
+
+  h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 400;
+  }
 }
 
-.glass-content {
-  @extend .glass;
-  // position: absolute;
-  width: 250px;
-  height: 60px;
-  // top: 0;
-  // left: 0;
+.wrapper {
   display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  color: white;
-  text-align: center;
-  transition: transform 0.3s ease;
-  margin-bottom: 24px;
+  justify-content: space-between;
 
-  i {
-    font-size: 2rem;
-    margin-left: 18px;
+  .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+
+    p {
+      margin-top: 24px;
+      line-height: 34px;
+      color: #a7a2a2;
+    }
+  }
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 44px;
+  padding-top: 34px;
+}
+
+.item {
+  background-color: #f5f5f5;
+  // background-color: red;
+  border-radius: var(--radius);
+  width: 400px;
+  height: 400px;
+
+  &.orange {
+    background-color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
   }
 
-  span {
-    font-size: 1.125rem;
-    font-weight: bold;
-    margin-left: 8px;
+  &.transparent {
+    background-color: transparent;
   }
+}
 
-  // حالت وسطی: بزرگ‌تر
-  &.active {
-    transform: scale(1.1);
-  }
+.connect {
+  position: absolute;
+  top: 358px;
+  left: 286px;
+  z-index: 2;
 }

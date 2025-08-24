@@ -1,29 +1,23 @@
 @import "../../css/helpers.scss";
 
-.pin-spacebar {
-  position: relative;
-  width: 100%;
-}
-
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  height: 138vh;
+  color: #fff;
+  height: 140vh;
   background-image: url(/bg.svg);
   background-position: 50% 0;
   background-size: cover;
   background-repeat: no-repeat;
-  transform: rotate(180deg);
+  // transform: rotate(180deg);
+  overflow: hidden;
 }
 
 .rectangle {
   position: absolute;
   right: 0;
-  bottom: -28rem;
+  bottom: -60%;
   z-index: 0;
-  width: 54.5rem;
-  height: 38.5rem;
+  width: 40%;
+  height: 92%;
   border-top-left-radius: 3.75rem;
   background-image: var(--accent);
 }
@@ -52,7 +46,7 @@
 
   a {
     // margin-right: 82px;
-    margin: 44px 64px;
+    margin: 24px 4px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -201,7 +195,7 @@
 
 .feature-block {
   position: absolute;
-  bottom: -320px;
+  bottom: -20%;
   left: 0;
   display: flex;
   justify-content: center;
