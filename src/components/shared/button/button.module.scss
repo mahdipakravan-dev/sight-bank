@@ -11,8 +11,10 @@
   }
 
   .content {
-    background: var(--primary);
-    padding: 12px 14px;
+    // background: var(--primary);
+    backdrop-filter: blur(5px);
+    border: 0.0625rem solid hsla(0, 0%, 100%, 0.3);
+    padding: 12px 44px;
     border-radius: var(--radius);
     color: #fff;
     font-weight: 600;
@@ -23,9 +25,12 @@
     gap: 8px;
     position: relative;
     overflow: hidden;
-    border: 1px solid transparent;
-    height: 44px;
-    min-width: 120px;
+    // border: 1px solid transparent;
+    // height: 44px;
+    // min-width: 120px;
+    max-width: 28rem;
+    font-size: 19px;
+    background-color: #202020c2;
 
     &::before {
       content: "";

@@ -3,20 +3,166 @@
 .pin-spacebar {
   position: relative;
   width: 100%;
-  margin: 0 auto;
-  font-size: 16px !important;
 }
 
 .hero-bg {
   position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
-  height: 83.875rem;
+  height: 138vh;
   background-image: url(/bg.svg);
   background-position: 50% 0;
   background-size: cover;
   background-repeat: no-repeat;
+  transform: rotate(180deg);
+}
+
+.rectangle {
+  position: absolute;
+  right: 0;
+  bottom: -25rem;
+  z-index: 0;
+  width: 52.5rem;
+  height: 42.5rem;
+  border-top-left-radius: 3.75rem;
+  background-image: var(--accent);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 500px;
+  z-index: 2;
+  margin-top: 8%;
+  display: flex;
+  justify-content: space-between;
+
+  h5 {
+    padding-right: 82px;
+    margin-bottom: 28px;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  h1 {
+    padding-right: 102px;
+    font-size: 5rem;
+  }
+
+  .hero-btn {
+    padding-top: 12%;
+    padding-right: 82px;
+  }
+}
+
+.hero-cards {
+  position: relative;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  width: 600px;
+}
+
+.card-shadow {
+  position: absolute;
+  left: 300px;
+  bottom: 90px;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform, filter, opacity;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 300ms ease,
+    opacity 300ms ease;
+  overflow: hidden;
+  border-radius: 24px;
+
+  > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    pointer-events: none;
+    background: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.14) 36%,
+      rgba(255, 255, 255, 0.55) 50%,
+      rgba(255, 255, 255, 0.14) 64%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    mix-blend-mode: screen;
+    border-radius: 42px;
+    opacity: 0;
+    // animation: sheen-ltr 3000ms ease-out 1 forwards;
+    // opacity: 1;
+  }
+}
+
+.card-black {
+  left: 200px;
+  bottom: -20px;
+  z-index: 3;
+  transform: perspective(60rem) rotateX(8deg) rotateY(2deg) rotateZ(-10deg)
+    translateZ(0);
+
+  &::after {
+    transform: translateX(-130%) skewX(-12deg);
+  }
+}
+
+.card-brown {
+  left: 20px;
+  bottom: 220px;
+  z-index: 4;
+  transform: perspective(60rem) rotateX(-6deg) rotateY(-8deg) rotateZ(8deg)
+    translateZ(0);
+
+  &::after {
+    transform: translateX(130%) skewX(-12deg);
+    border-radius: 42px;
+  }
+}
+
+.hero-cards:hover .card-black::after {
+  animation: sheen-ltr 900ms ease-out 1 forwards;
+  opacity: 1;
+}
+.hero-cards:hover .card-brown::after {
+  animation: sheen-ltr 900ms ease-out 1 forwards;
+  opacity: 1;
+}
+
+.hero-cards:hover .card-black {
+  transform: perspective(20rem) rotateX(7deg) rotateY(7deg) rotateZ(-9deg);
+}
+.hero-cards:hover .card-brown {
+  transform: perspective(20rem) rotateX(-5deg) rotateY(-5deg) rotateZ(8deg);
+}
+
+.hero-cards:hover .card {
+  opacity: 0.98;
+}
+
+@keyframes sheen-ltr {
+  0% {
+    transform: translateX(-20%) skewX(-7deg);
+  }
+  95% {
+    transform: translateX(20%) skewX(-12deg);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sheen-rtl {
 }
