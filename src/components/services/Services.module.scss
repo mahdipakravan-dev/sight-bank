@@ -68,3 +68,22 @@
   left: 286px;
   z-index: 2;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 32px 0;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .grid {
+    place-items: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .connect {
+    display: none;
+  }
+}

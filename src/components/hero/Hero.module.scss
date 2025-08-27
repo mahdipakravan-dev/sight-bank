@@ -238,3 +238,32 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .hero-bg {
+    height: 90vh;
+  }
+
+  .hero-content {
+    padding-top: 84px;
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-cards {
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  .feature-block {
+    display: none;
+    .upper-items {
+    }
+    .down-items {
+      display: none;
+    }
+  }
+}

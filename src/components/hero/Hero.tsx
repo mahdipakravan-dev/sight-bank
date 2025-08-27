@@ -16,7 +16,7 @@ const HeroSection = () => {
             <h1>بانکی که</h1>
             <h1>آرزو</h1>
             <h1>داشتید</h1>
-            <a href="#">
+            <a href="#" className={s["hero-btn"]}>
               به جمع ۵.۴ میلیون کاربر بپیوندید
               <div className={s["arrow-wrap"]}>
                 <div className="icon">
