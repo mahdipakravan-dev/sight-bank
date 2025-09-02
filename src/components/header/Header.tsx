@@ -41,7 +41,7 @@ const Header = () => {
   };
 
   return (
-    <header className={clsx(s.header, "container")}>
+    <header className={clsx(s.header, "")}>
       <div className={s.logo}>
         <Logo />
       </div>
