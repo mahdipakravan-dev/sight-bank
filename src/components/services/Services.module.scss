@@ -81,6 +81,10 @@
   .grid {
     place-items: center;
     grid-template-columns: repeat(1, 1fr);
+
+    .item {
+      width: 100%;
+    }
   }
 
   .connect {

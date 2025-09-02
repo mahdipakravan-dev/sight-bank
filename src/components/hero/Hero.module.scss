@@ -241,12 +241,17 @@
 
 @media (max-width: 768px) {
   .hero-bg {
-    height: 90vh;
+    height: 130vh;
   }
 
   .hero-content {
     padding-top: 84px;
     flex-direction: column;
+
+    h1,
+    h5 {
+      padding: 12px;
+    }
   }
 
   .hero-btn {
@@ -254,8 +259,7 @@
   }
 
   .hero-cards {
-    z-index: -1;
-    opacity: 0.5;
+    display: none;
   }
 
   .feature-block {

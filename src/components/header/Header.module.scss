@@ -51,10 +51,20 @@
   }
 }
 
+.mobileMenu {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .header {
     .menu {
       display: none;
     }
+  }
+
+  .mobileMenu {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
   }
 }
