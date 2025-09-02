@@ -1,3 +1,4 @@
+// No changes to Header.tsx
 import React, { useEffect, useState, useCallback } from "react";
 import { Button } from "../shared/button/button";
 import { Logo } from "../shared/logo";
@@ -7,10 +8,12 @@ import clsx from "clsx";
 
 const Header = () => {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const closeMenu = useCallback(() => setOpen(false), []);
-  const toggleMenu = () => setOpen((v) => !v);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
 
   // Close on ESC
   useEffect(() => {
@@ -21,17 +24,19 @@ const Header = () => {
     return () => document.removeEventListener("keydown", onKey);
   }, [closeMenu]);
 
-  // Prevent body scroll when open
+  // Prevent body scroll when menu is open
   useEffect(() => {
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [isMenuOpen]);
 
   const handleNavItemClick = () => {
-    // Close the panel after navigating on mobile
     closeMenu();
   };
 
@@ -66,13 +71,13 @@ const Header = () => {
 
       {/* Hamburger */}
       <button
-        className={clsx(s.burger, open && s.burgerOpen)}
+        className={clsx(s.burger, isMenuOpen && s.burgerOpen)}
         aria-label={
-          open
+          isMenuOpen
             ? t("header.close-menu", "Close menu")
             : t("header.open-menu", "Open menu")
         }
-        aria-expanded={open}
+        aria-expanded={isMenuOpen}
         aria-controls="mobile-menu"
         onClick={toggleMenu}
       >
@@ -82,13 +87,13 @@ const Header = () => {
       </button>
 
       {/* Overlay */}
-      {open && <div className={s.backdrop} onClick={closeMenu} />}
+      {isMenuOpen && <div className={s.backdrop} onClick={closeMenu} />}
 
       {/* Mobile slide-in menu */}
       <nav
         id="mobile-menu"
-        className={clsx(s.mobileMenu, open && s.mobileMenuOpen)}
-        aria-hidden={!open}
+        className={clsx(s.mobileMenu, isMenuOpen && s.mobileMenuOpen)}
+        aria-hidden={!isMenuOpen}
         aria-label={t("header.navigation", "Main")}
       >
         <ul>

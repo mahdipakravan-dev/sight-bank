@@ -2,24 +2,27 @@
 
 .header {
   color: #fff;
-  // display: grid;
-  // align-items: center;
-  // justify-content: space-between;
-  // grid-template-columns: repeat(3, 1fr);
-  // text-align: center;
-  // position: fixed;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 96px;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // z-index: 4;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  // backdrop-filter: blur(0px);
-  max-height: 96px;
-  // background-color: red;
-  width: 100%;
-  z-index: 2;
-  position: absolute;
-  inset: 0;
+  z-index: 4;
+  // Use relative positioning for the container, this is a common source of z-index issues.
+  // position: relative;
+
+  // The original `inset: 0` on .header can cause it to cover the entire page.
+  // We'll remove it to allow other content to be visible below the header.
+  // If you want the header to span the full width of the screen, use `width: 100%` on a fixed element.
+
+  .logo {
+    // A high z-index here can prevent it from being covered by other header elements.
+    z-index: 10;
+  }
 
   .menu {
     height: 100%;
@@ -27,10 +30,10 @@
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
+    z-index: 5; // A decent z-index for the desktop menu.
 
     ul {
       display: flex;
-      // width: 220px;
       justify-content: space-around;
       align-items: center;
       gap: 42px;
@@ -51,20 +54,130 @@
   }
 }
 
+/* Hamburger (hidden on desktop) */
+.burger {
+  --bar-h: 2px;
+  --bar-w: 22px;
+  --gap: 5px;
+
+  display: none; // Default state: hidden
+  position: relative; // Position relative ensures z-index works.
+  width: var(--bar-w);
+  height: calc(var(--bar-h) * 3 + var(--gap) * 2);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 15; // Set a high z-index to make sure it's always on top and clickable.
+  padding: 0;
+
+  span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--bar-h);
+    border-radius: 2px;
+    background: var(--text, #fff);
+    transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+  }
+
+  span:nth-child(1) {
+    top: 0;
+  }
+  span:nth-child(2) {
+    top: calc(var(--bar-h) + var(--gap));
+  }
+  span:nth-child(3) {
+    top: calc((var(--bar-h) + var(--gap)) * 2);
+  }
+
+  &.burgerOpen {
+    span:nth-child(1) {
+      top: calc(var(--bar-h) + var(--gap));
+      transform: rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      top: calc(var(--bar-h) + var(--gap));
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+/* Mobile slide-in menu */
 .mobileMenu {
-  display: none;
+  position: fixed;
+  inset: 0 0 0 auto;
+  top: 0;
+  right: 0;
+  width: min(100vw, 360px);
+  height: 100vh;
+  background: var(--accent, #0a0a0a);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.35);
+  transform: translateX(
+    -140%
+  ); // Hide the menu by moving it off-screen to the right
+  transition: transform 0.3s ease;
+  z-index: 10; // High z-index to be on top of the main content.
+  display: flex;
+  align-items: center;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin: 0;
+    padding: 24px;
+    width: 100%;
+
+    li {
+      padding: 10px 8px;
+      font-size: 1.05rem;
+      width: 100%;
+    }
+
+    li:last-child {
+      padding-top: 8px;
+    }
+  }
+
+  &.mobileMenuOpen {
+    transform: translateX(-30%); // Show the menu by sliding it in.
+  }
+}
+
+/* Dim background behind mobile menu */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 9; // Lower than the menu, but higher than the main content.
+}
+
+/* Responsive rules */
+@media (max-width: 1024px) {
+  .header .menu ul {
+    gap: 28px;
+  }
 }
 
 @media (max-width: 768px) {
   .header {
     .menu {
-      display: none;
+      display: none; // Hide desktop menu
     }
   }
+  .burger {
+    display: inline-block; // Show hamburger
+  }
+}
 
-  .mobileMenu {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
   }
 }
